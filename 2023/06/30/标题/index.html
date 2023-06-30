@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>标题 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、马踏棋盘问题描述将马随机放在国际象棋的8×8棋盘[0～7][0～7]的某个方格中，马按走棋规则进行移动。要求每个方格只进入一次，走遍棋盘上全部64个方格。编制递归和非递归程序，求出马的行走路线，并按求出的行走路线，将数字1，2，…，64依次填入一个8×8的方阵，输出之。 程序代码棋盘定义 123#define ROW 8#define COL 8#define MAX_STEPS ROW*CO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="标题">
+<meta property="og:url" content="http://example.com/2023/06/30/%E6%A0%87%E9%A2%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、马踏棋盘问题描述将马随机放在国际象棋的8×8棋盘[0～7][0～7]的某个方格中，马按走棋规则进行移动。要求每个方格只进入一次，走遍棋盘上全部64个方格。编制递归和非递归程序，求出马的行走路线，并按求出的行走路线，将数字1，2，…，64依次填入一个8×8的方阵，输出之。 程序代码棋盘定义 123#define ROW 8#define COL 8#define MAX_STEPS ROW*CO">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-06-30T10:42:10.000Z">
+<meta property="article:modified_time" content="2023-06-30T10:44:55.955Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-标题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/06/30/%E6%A0%87%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2023-06-30T10:42:10.000Z" itemprop="datePublished">2023-06-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      标题
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、马踏棋盘"><a href="#一、马踏棋盘" class="headerlink" title="一、马踏棋盘"></a>一、马踏棋盘</h2><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a><strong>问题描述</strong></h4><p>将马随机放在国际象棋的8×8棋盘[0～7][0～7]的某个方格中，马按走棋规则进行移动。要求每个方格只进入一次，走遍棋盘上全部64个方格。编制递归和非递归程序，求出马的行走路线，并按求出的行走路线，将数字1，2，…，64依次填入一个8×8的方阵，输出之。</p>
+<h4 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a><strong>程序代码</strong></h4><p><strong>棋盘定义</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> ROW 8</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> COL 8</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_STEPS ROW*COL</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>定义每次的改变的相对坐标</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> move_x[<span class="number">8</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">-2</span>, <span class="number">-2</span>, <span class="number">-1</span> &#125;;</span><br><span class="line"><span class="type">int</span> move_y[<span class="number">8</span>] = &#123; <span class="number">2</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">-2</span>, <span class="number">-2</span>, <span class="number">-1</span>, <span class="number">1</span>, <span class="number">2</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>方法1：<strong>DFS（递归）</strong></p>
+<blockquote>
+<p><code>Dfs</code> 函数是深度优先遍历函数，使用递归方式实现。</p>
+<p>接受二维数组 <code>path</code> 表示棋盘，<code>m</code> 和 <code>n</code> 表示当前位置的坐标，<code>edge</code> 表示棋盘边长，<code>count</code> 表示已经访问的格子数。</p>
+<p>函数首先判断是否已经访问了所有的格子，如果是则直接返回。</p>
+<p>然后判断当前位置是否在棋盘范围内且未被访问过，如果是则增加已访问的格子数，将该位置标记为已访问，并进行递归调用，以便继续向下一位置探索。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//深度优先遍历（递归）</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Dfs</span><span class="params">(<span class="type">int</span> path[<span class="number">8</span>][<span class="number">8</span>], <span class="type">int</span> m, <span class="type">int</span> n, <span class="type">int</span> edge, <span class="type">int</span> count)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (count &gt;= edge * edge)<span class="comment">//如果走过的格子数大于等于棋盘数</span></span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">if</span> (m &lt;= edge - <span class="number">1</span> &amp;&amp; n &lt;= edge - <span class="number">1</span> &amp;&amp; m &gt;= <span class="number">0</span> &amp;&amp; n &gt;= <span class="number">0</span> &amp;&amp; path[m][n] == <span class="number">0</span>)<span class="comment">//位置（m,n）在棋盘上，并且没有被走过</span></span><br><span class="line">	&#123;</span><br><span class="line">		count++;<span class="comment">//走过的格子数+1</span></span><br><span class="line">		path[m][n] = count;<span class="comment">//把该位置的值改为第几个走过的格子</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; edge; i++)</span><br><span class="line">			Dfs(path, m + move_x[i], n + move_y[i], edge, count);<span class="comment">//进行递归，直到走过的格子数大于等于棋盘数</span></span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;														</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/06/30/%E6%A0%87%E9%A2%98/" data-id="cljig7ana0000csajadzve4q7" data-title="标题" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/06/30/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/06/30/%E6%A0%87%E9%A2%98/">标题</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/30/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
