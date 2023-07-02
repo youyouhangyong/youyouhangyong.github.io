@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>blogs</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2023-06-30T12:38:17.672Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>YYHY&#39;s</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>实习</title>
+    <link href="http://example.com/2023/06/30/%E6%A0%87%E9%A2%98/"/>
+    <id>http://example.com/2023/06/30/%E6%A0%87%E9%A2%98/</id>
+    <published>2023-06-30T10:42:10.000Z</published>
+    <updated>2023-06-30T12:38:17.672Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、马踏棋盘"><a href="#一、马踏棋盘" class="headerlink" title="一、马踏棋盘"></a>一、马踏棋盘</h2><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a><strong>问题描述</strong></h4><p>将马随机放在国际象棋的8×8棋盘[0～7][0～7]的某个方格中，马按走棋规则进行移动。要求每个方格只进入一次，走遍棋盘上全部64个方格。编制递归和非递归程序，求出马的行走路线，并按求出的行走路线，将数字1，2，…，64依次填入一个8×8的方阵，输出之。</p><h4 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a><strong>程序代码</strong></h4><p><strong>棋盘定义</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> ROW 8</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> COL 8</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_STEPS ROW*COL</span></span><br></pre></td></tr></table></figure><p><strong>定义每次的改变的相对坐标</strong></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> move_x[<span class="number">8</span>] = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">-2</span>, <span class="number">-2</span>, <span class="number">-1</span> &#125;;</span><br><span class="line"><span class="type">int</span> move_y[<span class="number">8</span>] = &#123; <span class="number">2</span>, <span class="number">1</span>, <span class="number">-1</span>, <span class="number">-2</span>, <span class="number">-2</span>, <span class="number">-1</span>, <span class="number">1</span>, <span class="number">2</span> &#125;;</span><br></pre></td></tr></table></figure><p>方法1：<strong>DFS（递归）</strong></p><blockquote><p><code>Dfs</code> 函数是深度优先遍历函数，使用递归方式实现。</p><p>接受二维数组 <code>path</code> 表示棋盘，<code>m</code> 和 <code>n</code> 表示当前位置的坐标，<code>edge</code> 表示棋盘边长，<code>count</code> 表示已经访问的格子数。</p><p>函数首先判断是否已经访问了所有的格子，如果是则直接返回。</p><p>然后判断当前位置是否在棋盘范围内且未被访问过，如果是则增加已访问的格子数，将该位置标记为已访问，并进行递归调用，以便继续向下一位置探索。</p></blockquote><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//深度优先遍历（递归）</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Dfs</span><span class="params">(<span class="type">int</span> path[<span class="number">8</span>][<span class="number">8</span>], <span class="type">int</span> m, <span class="type">int</span> n, <span class="type">int</span> edge, <span class="type">int</span> count)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (count &gt;= edge * edge)<span class="comment">//如果走过的格子数大于等于棋盘数</span></span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line"><span class="keyword">if</span> (m &lt;= edge - <span class="number">1</span> &amp;&amp; n &lt;= edge - <span class="number">1</span> &amp;&amp; m &gt;= <span class="number">0</span> &amp;&amp; n &gt;= <span class="number">0</span> &amp;&amp; path[m][n] == <span class="number">0</span>)<span class="comment">//位置（m,n）在棋盘上，并且没有被走过</span></span><br><span class="line">&#123;</span><br><span class="line">count++;<span class="comment">//走过的格子数+1</span></span><br><span class="line">path[m][n] = count;<span class="comment">//把该位置的值改为第几个走过的格子</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; edge; i++)</span><br><span class="line">Dfs(path, m + move_x[i], n + move_y[i], edge, count);<span class="comment">//进行递归，直到走过的格子数大于等于棋盘数</span></span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一、马踏棋盘&quot;&gt;&lt;a href=&quot;#一、马踏棋盘&quot; class=&quot;headerlink&quot; title=&quot;一、马踏棋盘&quot;&gt;&lt;/a&gt;一、马踏棋盘&lt;/h2&gt;&lt;h4 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2023/06/30/hello-world/"/>
+    <id>http://example.com/2023/06/30/hello-world/</id>
+    <published>2023-06-30T10:33:17.977Z</published>
+    <updated>2023-06-30T10:28:20.507Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
