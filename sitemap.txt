@@ -1,6 +1,12 @@
+http://example.com/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/
 http://example.com/2023/07/03/Front-matter%E7%A4%BA%E4%BE%8B/
 http://example.com/2023/06/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BE%E7%A8%8B%E5%AE%9E%E4%B9%A0/
+http://example.com/category/index.html
 http://example.com/
 http://example.com/tags/Markdown/
 http://example.com/tags/Hexo/
+http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/
+http://example.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/
+http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/
 http://example.com/categories/Hexo/
+http://example.com/categories/%E8%AF%BE%E7%A8%8B/

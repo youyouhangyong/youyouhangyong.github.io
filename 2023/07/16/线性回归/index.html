@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="youyouhangyong">
+
+
+
+    <meta name="description" content="一个基于Hexo的个人博客">
+
+
+
+<title>线性回归 | YYHY&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="YYHY's Blog" type="application/atom+xml">
+</head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">YYHY&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">YYHY&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">线性回归</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">youyouhangyong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">七月 16, 2023&nbsp;&nbsp;15:48:31</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>线性回归是一种基础而且常用的机器学习算法。</p>
+<p>它的假设是，<strong>输出y可以被输入x以线性的方式预测</strong> <code>y = wx + b</code>,</p>
+<p>其中，w和b是模型要学习的参数。</p>
+<p><strong>线性回归的目标是求解w和b</strong>，使得预测输出y与真实输出之间的误差最小。</p>
+<p>线性回归的损失函数通常使用均方误差作为衡量指标:</p>
+<p><strong>$$MSE &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} (Y_i - \hat{Y}_i)^2$$</strong></p>
+<p>其中:</p>
+<ul>
+<li>$n$ - 样本数量</li>
+<li>$Y_i$ - 第$i$个样本的真实值</li>
+<li>$\hat{Y}_i$ - 第$i$个样本的预测值 </li>
+<li>$\sum$ - 求和符号,对所有样本求和解析:</li>
+<li>$(Y_i - \hat{Y}_i)$ 表示第$i$个样本的预测误差,即真实值与预测值之</li>
+<li>$(Y_i - \hat{Y}_i)^2$ 对预测误差进行平方,避免正负误差相抵消,误差可能为负也可能为正，取平方有一个特性，它惩罚更大的错误更多。</li>
+<li>$\frac{1}{n}$ 求样本平均值,防止样本数量影响所以MSE是每个样本平方误差之和的平均值,反映了模型预测值与真实值的偏差程度。</li>
+</ul>
+<p>下面是一个简单的示例，搞明白线性回归是干什么的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成数据</span></span><br><span class="line"><span class="comment"># x和y分别是一个一维数组,表示样本的特征和标签</span></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line">y = np.array([<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">11</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># w和b表示线性模型的参数,初始化为0</span></span><br><span class="line">w = <span class="number">0</span> </span><br><span class="line">b = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># lr是梯度下降的学习率,epochs是训练轮数</span></span><br><span class="line">lr = <span class="number">0.01</span> </span><br><span class="line">epochs = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">    y_pred = w*x + b <span class="comment">#计算预测值   </span></span><br><span class="line">    loss = np.square(y_pred - y).mean()</span><br><span class="line">    w = w - lr*<span class="number">2</span>/<span class="built_in">len</span>(x) * np.<span class="built_in">sum</span>((y_pred - y)*x) </span><br><span class="line">    b = b - lr*<span class="number">2</span>/<span class="built_in">len</span>(x) * np.<span class="built_in">sum</span>((y_pred - y))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(w, b)</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.003880582342283 0.9859898664422495</span><br></pre></td></tr></table></figure>
+
+<p>步骤：</p>
+<ol>
+<li>生成测试数据:<strong>x</strong>和<strong>y</strong>数组分别代表<strong>输入</strong>和<strong>输出</strong>,这里生成了5个数据点。</li>
+<li>参数初始化:模型参数w和b初始化为0。</li>
+<li>定义超参数:<strong>学习率</strong>lr为0.01,<strong>训练轮数</strong>epochs为1000。</li>
+<li>训练:for循环表示进行1000轮训练,每轮都进行以下步骤:</li>
+</ol>
+<p>​		(1) 根据当前参数w和b,计算预测输出y_pred。</p>
+<p>​		(2) 计算损失函数loss,这里使用<strong>均方误差</strong>。</p>
+<p>​		(3) 根据损失函数<strong>求导</strong>得出w和b的梯度。</p>
+<p>​		(4) 使用梯度下降算法更新w和b,其中lr是学习率。</p>
+<p>​	5.打印出训练后的w和b参数。</p>
+<p>分析：</p>
+<p>针对这个线性回归代码,最理想的输出结果是:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = 2 </span><br><span class="line">b = 1</span><br></pre></td></tr></table></figure>
+
+<p>因为我们生成的示例数据符合这样一个模型:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = 2x + 1</span><br></pre></td></tr></table></figure>
+
+<p>也就是说,真实的模型参数应该是:<br>w(权重参数)&#x3D; 2<br>b(偏置参数)&#x3D; 1</p>
+<p>如果模型训练完美,经过足够多的迭代优化,我们期望的参数w和b会收敛到这两个值。</p>
+<p>具体来看,在这个代码示例中:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line">y = np.array([<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">11</span>])</span><br></pre></td></tr></table></figure>
+
+<p>这些样本点正好符合公式 y &#x3D; 2x + 1。</p>
+<p>所以当代码训练结束后,如果我们的w和b分别收敛到2和1,就说明模型训练是成功的,完美拟合了这个线性关系。</p>
+<p>其中调节线性回归模型的学习率会对训练过程和结果产生不同的影响:</p>
+<ol>
+<li>学习率增加:</li>
+</ol>
+<ul>
+<li><p>收敛速度会变快,需要的迭代轮数会减少。</p>
+</li>
+<li><p>但是容易产生参数的振荡,难以收敛到稳定优化的结果。</p>
+</li>
+<li><p>最终模型的预测效果可能会变差。</p>
+</li>
+</ul>
+<ol start="2">
+<li>学习率减小:</li>
+</ol>
+<ul>
+<li><p>收敛速度会变慢,需要更多的迭代轮数。</p>
+</li>
+<li><p>参数更新会更加稳定和平滑。</p>
+</li>
+<li><p>最终可以收敛到一个较优的模型,预测效果更好。</p>
+</li>
+<li><p>但是计算代价更高,需要花费更多时间。</p>
+</li>
+</ul>
+<p>所以学习率的选择需要找到最佳平衡点:</p>
+<ul>
+<li><p>学习率不能太大,否则容易产生参数振荡。</p>
+</li>
+<li><p>学习率也不能太小,否则收敛速度过慢。</p>
+</li>
+</ul>
+<p>一个通用的方法是从一个较小的学习率开始,如果发现收敛速度过慢,可以适当增加学习率;如果出现振荡,则应该降低学习率。</p>
+<p>下面再给出一个较复杂的例子：</p>
+<p>这个线性回归的代码示例:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+
+<p>导入所需的numpy和matplotlib库。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>设置随机数种子,这样可以重现结果。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.random.uniform(<span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">y = <span class="number">2</span>*x + <span class="number">3</span> + np.random.normal(<span class="number">0</span>, <span class="number">10</span>, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<p>使用numpy随机生成100组训练数据,x范围是0到100,y计算方式是y&#x3D;2x+3加上正态噪声。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">model = LinearRegression()</span><br><span class="line">model.fit(x.reshape(-<span class="number">1</span>,<span class="number">1</span>), y) </span><br></pre></td></tr></table></figure>
+
+<p>使用scikit-learn中的LinearRegression模型,拟合训练数据x和y。需要reshape x 为二维。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x_test = np.linspace(<span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>).reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">y_pred = model.predict(x_test)</span><br></pre></td></tr></table></figure>
+
+<p>生成0-100范围内的100个预测点x_test,用训练好的模型model预测对应的y值,得到y_pred。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.plot(x_test, y_pred, color=<span class="string">&#x27;r&#x27;</span>) </span><br><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>使用matplotlib画出训练数据的散点图,以及用红色线画出预测的线性回归直线。增加坐标标签。</p>
+<p>这样我们就可以直观地看到了模型对数据的拟合效果。</p>
+<p>完整代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成100组随机数据</span></span><br><span class="line">np.random.seed(<span class="number">1</span>)</span><br><span class="line">x = np.random.uniform(<span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">y = <span class="number">2</span>*x + <span class="number">3</span> + np.random.normal(<span class="number">0</span>, <span class="number">10</span>, <span class="number">100</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 拟合线性回归模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">model = LinearRegression()</span><br><span class="line">model.fit(x.reshape(-<span class="number">1</span>,<span class="number">1</span>), y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">x_test = np.linspace(<span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>).reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">y_pred = model.predict(x_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 画图</span></span><br><span class="line">plt.scatter(x, y) </span><br><span class="line">plt.plot(x_test, y_pred, color=<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>我们先生成了100组随机数据,其中y满足公式y&#x3D;2x+3加上一点正态扰动。</p>
+<p>然后我们使用scikit-learn中的LinearRegression模型对数据进行线性回归拟合。</p>
+<p>最后我们生成100个等间隔的x,用模型预测对应的y,并画出散点图和预测的线性回归直线。</p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCIMXMq"><img src="https://s1.ax1x.com/2023/07/16/pCIMXMq.png" alt="pCIMXMq.png"></a></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>youyouhangyong</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">http://example.com/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"># 机器学习</a>
+                    
+                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"># 深度学习</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/07/03/Front-matter%E7%A4%BA%E4%BE%8B/">Front-matter示例</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© youyouhangyong | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
