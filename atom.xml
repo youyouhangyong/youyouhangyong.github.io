@@ -3,11 +3,11 @@
   <title>YYHY&#39;s Blog</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://youyouhangyong.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2023-07-20T04:42:28.410Z</updated>
-  <id>http://example.com/</id>
+  <link href="https://youyouhangyong.github.io/"/>
+  <updated>2023-07-22T06:55:32.033Z</updated>
+  <id>https://youyouhangyong.github.io/</id>
   
   <author>
     <name>youyouhangyong</name>
@@ -17,9 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>决策树</title>
+    <link href="https://youyouhangyong.github.io/2023/07/22/%E5%86%B3%E7%AD%96%E6%A0%91/"/>
+    <id>https://youyouhangyong.github.io/2023/07/22/%E5%86%B3%E7%AD%96%E6%A0%91/</id>
+    <published>2023-07-22T06:22:41.000Z</published>
+    <updated>2023-07-22T06:55:32.033Z</updated>
+    
+    <content type="html"><![CDATA[<p>决策树是一种常见的监督学习方法,用于分类和回归。</p><p>主要思想:将数据递归地按特征分割,构建一个树形结构,表示输入和输出之间的映射关系。</p><p>特点:非参数化模型,可以处理数值和分类数据,易于理解和解释。</p><p>算法:常用ID3、C4.5、CART等,通过选取最优特征进行数据分割。</p><ol type="1"><li>分割标准:信息增益、GINI指数等,度量分割的好坏。</li><li>停止条件:没有特征可选或达到树的最大深度。</li><li>预测:从根节点开始,测试数据在树中传播,直到达叶节点获得预测。</li><li>剪枝:防止过拟合,后剪枝或预剪枝。</li><li>集成学习:决策树容易过拟合,通常使用随机森林、GBDT等集成学习方法。</li></ol><p>决策树通过递归分割构建树模型,易于理解和解释,是一种常用的基础分类与回归方法。</p><p>下面通过鸢尾花数据来进行一个简单的演示：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.environ[<span class="string">&#x27;PATH&#x27;</span>] = os.pathsep + <span class="string">r&#x27;C:\Program Files (x86)\Graphviz2.38\bin&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line"><span class="keyword">import</span> graphviz</span><br><span class="line"></span><br><span class="line">iris = load_iris() <span class="comment"># 加载鸢尾花原始数据集</span></span><br><span class="line">X = iris.data[:, :<span class="number">2</span>]  <span class="comment"># 取前两个特征，已经分割好</span></span><br><span class="line">y = iris.target <span class="comment"># 将特征存储在变量X中，而目标值（类别）存储在变量y中</span></span><br><span class="line"></span><br><span class="line">clf = tree.DecisionTreeClassifier()</span><br><span class="line">clf = clf.fit(X, y)  <span class="comment"># 创建了一个决策树分类器并将数据 X 和对应的目标值y用于训练模型。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可视化决策树</span></span><br><span class="line">dot_data = tree.export_graphviz(clf, out_file=<span class="literal">None</span>)<span class="comment"># export_graphviz可以导出决策树的DOT图描述文件</span></span><br><span class="line">graph = graphviz.Source(dot_data)</span><br><span class="line">graph.render(<span class="string">&quot;Iris&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对新样本进行预测</span></span><br><span class="line"><span class="built_in">print</span>(clf.predict([[<span class="number">2.4</span>, <span class="number">2.05</span>]]))  <span class="comment"># [0]</span></span><br><span class="line"><span class="built_in">print</span>(clf.predict([[<span class="number">4.9</span>, <span class="number">2.05</span>]]))  <span class="comment"># [1]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><ol type="1"><li><p>iris原始数据集存在于scikit-learn数据集模块中,可以通过load_iris()直接导入使用。</p><ol type="1"><li>iris.data -150x4的NumPy数组,包含4个特征,分别是花萼长度、花萼宽度、花瓣长度、花瓣宽度，这里只取前了两个特征</li><li>iris.target -150x1的NumPy数组,包含每朵鸢尾花对应的类别,0/1/2代表Setosa/Versicolor/Virginica</li></ol></li><li><p>通过代码提取iris的数据特征和目标值进行训练,得到一个决策树分类器模型clf。</p></li><li><p>决策树模型clf包含了训练后的树结构,但此时树结构还没有可视化。</p></li><li><p>使用export_graphviz可以导出决策树的DOT图描述文件。</p></li><li><p>使用graphviz模块将DOT文件转换为图像格式,如PDF。</p></li><li><p>所以最终我们得到了可视化的决策树图像iris.pdf。</p></li></ol><div class="row">    <embed src="/pdf/Iris.pdf" width="100%" height="550" type="application/pdf"></div><p>在决策树的图示中:</p><p><strong>gini</strong>:表示该节点的基尼系数(Giniindex),它衡量了该节点的不纯度,值越小表示样本集合的纯度越高。</p><p><strong>samples</strong>:表示该节点包含的样本数量。</p><p><strong>value</strong>:表示该节点包含的不同类别的样本数目,是个数组。</p><p>例如在根节点的信息:</p><p>gini = 0.667</p><p>samples = 150</p><p>value = [50, 50, 50]</p><p>意义是:</p><p>基尼系数为0.667,表示根节点的不纯度较高。</p><p>总样本量为150,即包含全部的150朵鸢尾花。</p><p>值数组[50, 50, 50]表示共有3类,每类样本数量分别为50。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;决策树是一种常见的监督学习方法,用于分类和回归。&lt;/p&gt;
+&lt;p&gt;主要思想:将数据递归地按特征分割,构建一个树形结构,表示输入和输出之间的映射关系。&lt;/p&gt;
+&lt;p&gt;特点:非参数化模型,可以处理数值和分类数据,易于理解和解释。&lt;/p&gt;
+&lt;p&gt;算法:常用ID3、C4.5、C</summary>
+      
+    
+    
+    
+    
+    <category term="机器学习" scheme="https://youyouhangyong.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="深度学习" scheme="https://youyouhangyong.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SVM</title>
-    <link href="http://example.com/2023/07/20/SVM/"/>
-    <id>http://example.com/2023/07/20/SVM/</id>
+    <link href="https://youyouhangyong.github.io/2023/07/20/SVM/"/>
+    <id>https://youyouhangyong.github.io/2023/07/20/SVM/</id>
     <published>2023-07-20T04:37:32.000Z</published>
     <updated>2023-07-20T04:42:28.410Z</updated>
     
@@ -37,16 +64,16 @@
     
     
     
-    <category term="机器学习" scheme="http://example.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <category term="机器学习" scheme="https://youyouhangyong.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深度学习" scheme="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://youyouhangyong.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>逻辑回归</title>
-    <link href="http://example.com/2023/07/18/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
-    <id>http://example.com/2023/07/18/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</id>
+    <link href="https://youyouhangyong.github.io/2023/07/18/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
+    <id>https://youyouhangyong.github.io/2023/07/18/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</id>
     <published>2023-07-18T05:37:28.000Z</published>
     <updated>2023-07-18T06:57:25.354Z</updated>
     
@@ -62,19 +89,19 @@
     
     
     
-    <category term="机器学习" scheme="http://example.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <category term="机器学习" scheme="https://youyouhangyong.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="机器学习" scheme="http://example.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <category term="机器学习" scheme="https://youyouhangyong.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深度学习" scheme="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://youyouhangyong.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>线性回归</title>
-    <link href="http://example.com/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
-    <id>http://example.com/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</id>
+    <link href="https://youyouhangyong.github.io/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
+    <id>https://youyouhangyong.github.io/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</id>
     <published>2023-07-16T07:48:31.000Z</published>
     <updated>2023-07-18T06:57:33.371Z</updated>
     
@@ -91,38 +118,38 @@
     
     
     
-    <category term="机器学习" scheme="http://example.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <category term="机器学习" scheme="https://youyouhangyong.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="机器学习" scheme="http://example.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <category term="机器学习" scheme="https://youyouhangyong.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="深度学习" scheme="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    <category term="深度学习" scheme="https://youyouhangyong.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>Front-matter示例</title>
-    <link href="http://example.com/2023/07/03/Front-matter%E7%A4%BA%E4%BE%8B/"/>
-    <id>http://example.com/2023/07/03/Front-matter%E7%A4%BA%E4%BE%8B/</id>
+    <link href="https://youyouhangyong.github.io/2023/07/03/Front-matter%E7%A4%BA%E4%BE%8B/"/>
+    <id>https://youyouhangyong.github.io/2023/07/03/Front-matter%E7%A4%BA%E4%BE%8B/</id>
     <published>2023-07-03T06:53:50.000Z</published>
     <updated>2023-07-03T07:26:59.292Z</updated>
     
     
     
     
-    <category term="Hexo" scheme="http://example.com/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://youyouhangyong.github.io/categories/Hexo/"/>
     
     
-    <category term="Markdown" scheme="http://example.com/tags/Markdown/"/>
+    <category term="Markdown" scheme="https://youyouhangyong.github.io/tags/Markdown/"/>
     
-    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://youyouhangyong.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>数据结构实习</title>
-    <link href="http://example.com/2023/06/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BE%E7%A8%8B%E5%AE%9E%E4%B9%A0/"/>
-    <id>http://example.com/2023/06/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BE%E7%A8%8B%E5%AE%9E%E4%B9%A0/</id>
+    <link href="https://youyouhangyong.github.io/2023/06/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BE%E7%A8%8B%E5%AE%9E%E4%B9%A0/"/>
+    <id>https://youyouhangyong.github.io/2023/06/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BE%E7%A8%8B%E5%AE%9E%E4%B9%A0/</id>
     <published>2023-06-30T10:42:10.000Z</published>
     <updated>2023-07-03T07:21:33.976Z</updated>
     
@@ -136,10 +163,10 @@
     
     
     
-    <category term="课程" scheme="http://example.com/categories/%E8%AF%BE%E7%A8%8B/"/>
+    <category term="课程" scheme="https://youyouhangyong.github.io/categories/%E8%AF%BE%E7%A8%8B/"/>
     
     
-    <category term="数据结构" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="数据结构" scheme="https://youyouhangyong.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
