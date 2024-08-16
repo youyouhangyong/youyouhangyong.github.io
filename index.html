@@ -1,348 +1,383 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ZC' bolg for test</title>
-    <meta charset="utf-8">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>YYHY's Blog</title><meta name="author" content="youyouhangyong"><meta name="copyright" content="youyouhangyong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基于Hexo的个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="YYHY&#39;s Blog">
+<meta property="og:url" content="https://youyouhangyong.github.io/index.html">
+<meta property="og:site_name" content="YYHY&#39;s Blog">
+<meta property="og:description" content="基于Hexo的个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://youyouhangyong.github.io/img/tx.jpg">
+<meta property="article:author" content="youyouhangyong">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://youyouhangyong.github.io/img/tx.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://youyouhangyong.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'YYHY\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-08-16 10:37:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-    <!-- 引入配置文件 -->
-    
-<link rel="stylesheet" href="/css/main.css">
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-    <!-- 字体图片库 -->
-    
-<link rel="stylesheet" href="/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-
-    <!-- 代码高亮库 -->
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
-
-    
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="YYHY's Blog" type="application/atom+xml">
-</head>
-<body>
-
-    <div id="main">
-        <!-- 引入侧边栏 -->
-        <aside id="#aside">
-            <!-- 搜索栏 -->
-<div id="search">
-    <input class="search-input" type="text" placeholder="search">
-    <i id="search-icon" class="fa fa-bars" title="切换目录与索引">
-</div>
-
-
-<!-- 侧边目录栏 -->
-<div id="tree">
-    
-
-    
-                    <ul>
-                        <li class="file">
-                            <a href="/2023/07/03/Front-matter示例/">
-                                <i class="fa fa-file"></i>
-                                Front-matter示例
-                            </a>
-                        </li>
-                    </ul>
-    
-                    <ul>
-                        <li class="file">
-                            <a href="/2023/07/20/SVM/">
-                                <i class="fa fa-file"></i>
-                                SVM
-                            </a>
-                        </li>
-                    </ul>
-    
-                    <ul>
-                        <li class="file">
-                            <a href="/2024/08/13/使用Unity创建一个类似MC的游戏场景（一）/">
-                                <i class="fa fa-file"></i>
-                                使用Unity创建一个类似MC的游戏场景（一）
-                            </a>
-                        </li>
-                    </ul>
-    
-                    <ul>
-                        <li class="file">
-                            <a href="/2023/07/22/决策树/">
-                                <i class="fa fa-file"></i>
-                                决策树
-                            </a>
-                        </li>
-                    </ul>
-    
-                    <ul>
-                        <li class="file">
-                            <a href="/2023/07/25/图像表示和图像增强（一）/">
-                                <i class="fa fa-file"></i>
-                                图像表示和图像增强（一）
-                            </a>
-                        </li>
-                    </ul>
-    
-                    <ul>
-                        <li class="file">
-                            <a href="/2023/07/29/图像表示和图像增强（二）/">
-                                <i class="fa fa-file"></i>
-                                图像表示和图像增强（二）
-                            </a>
-                        </li>
-                    </ul>
-    
-                    <ul>
-                        <li class="file">
-                            <a href="/2023/06/30/数据结构课程实习/">
-                                <i class="fa fa-file"></i>
-                                数据结构课程实习
-                            </a>
-                        </li>
-                    </ul>
-    
-                    <ul>
-                        <li class="file">
-                            <a href="/2023/07/16/线性回归/">
-                                <i class="fa fa-file"></i>
-                                线性回归
-                            </a>
-                        </li>
-                    </ul>
-    
-                    <ul>
-                        <li class="file">
-                            <a href="/2023/07/18/逻辑回归/">
-                                <i class="fa fa-file"></i>
-                                逻辑回归
-                            </a>
-                        </li>
-                    </ul>
-    
-</div>
-
-<!-- 最尾部添加，这里就不列以前的代码了 -->
-<div id="toc" style="display: none;"></div>
-
-        </aside>
-
-        <!-- 引入导航 -->
-        <nav>
-            <ul id="menu">
-    <!-- 内部链接本页面直接跳转 -->
-    
-    <li class="menu-item">
-        <a href="/ || fas fa-home" class="menu-item-link">首页</a>
-    </li>
-    
-    <li class="menu-item">
-        <a href="/archives/ || fas fa-archive" class="menu-item-link">归档</a>
-    </li>
-    
-    <li class="menu-item">
-        <a href="/tags/ || fas fa-tags" class="menu-item-link">标签</a>
-    </li>
-    
-    <li class="menu-item">
-        <a href="/categories/ || fas fa-folder-open" class="menu-item-link">分类</a>
-    </li>
-    
-    <li class="menu-item">
-        <a href="/about/ || fas fa-heart" class="menu-item-link">关于</a>
-    </li>
-    
-
-    <!-- 外部链接打开新的窗口跳转 -->
-    
-    <li class="menu-item">
-        <a href="https://www.cnblogs.com/yyhh/p/11058985.html" class="menu-item-link" target="_blank">参考教程</a>
-    </li>
-    
-    <li class="menu-item">
-        <a href="https://github.com/youyouhangyong" class="menu-item-link" target="_blank">github</a>
-    </li>
-    
-
-</ul>
-
-        </nav>
-
-        <!-- 引入正文 -->
-        <div id="content">
-      <div id="articleList">
-    <ul>
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="YYHY's Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/1689498610985.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="YYHY's Blog"><span class="site-name">YYHY's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">YYHY's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/youyouhangyong" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:youyouhangyong@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/08/13/%E4%BD%BF%E7%94%A8Unity%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B1%BB%E4%BC%BCMC%E7%9A%84%E6%B8%B8%E6%88%8F%E5%9C%BA%E6%99%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="使用Unity创建一个类似MC的游戏场景（一）">使用Unity创建一个类似MC的游戏场景（一）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-13T11:58:37.000Z" title="发表于 2024-08-13 19:58:37">2024-08-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">游戏开发</a></span></div><div class="content">前言使用Unity来制作一个类似Minecraft的游戏场景。这个系列的文章将记录我制作这个游戏场景的过程。
+我们首先将建立一个体素引擎，用于生成游戏中的区块（chunk）
+准备工作首先，我们需要准备一些工具和资源。
+在这个系列的文章中，我们将使用Unity 2020.3.48f1c1版本，以及一些免费的资源。
+贴图资源Voxel Pack · Kenney的原始地址点此下载贴图包
+导入贴图包点击 
+资源-&gt;导入包-&gt;自定义包 
+选择下载的unity资源包进行导入
 
-            <li class="article-li">
-                <span class="article-date">2023-07-03</span>
-                <a class="article-read" href="/2023/07/03/Front-matter示例/"> 阅读全文 </span>
-                <a class="article-title" href="/2023/07/03/Front-matter示例/">Front-matter示例</a>
-                <div class="article-digest">
-                    
+编写代码首先在我们Untiy的Assets文件夹下创建一个**_Scripts**文件夹，用于存储我们的所有代码。
+Assets
+    -- _Scripts //代码
+    -- _Textures //贴图
+    -- Scense //场景
 
-                    ...
-                </div>
-            </li>
-            
-        
+定义方块类型在**_Scripts下创建BlockType.cs**脚本，用于定义游戏中的方块类型。
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/07/29/%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA%EF%BC%88%E4%BA%8C%EF%BC%89/" title="图像表示和图像增强（二）">图像表示和图像增强（二）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-29T05:44:48.000Z" title="发表于 2023-07-29 13:44:48">2023-07-29</time></span></div><div class="content">图像处理（二）
+滤波
+滤波是一种常见的信号处理技术，用于去除信号中的噪声、平滑信号、增强信号特征等。在图像处理中，滤波器（也称为卷积核或内核）在图像上滑动，对图像的每个像素点进行加权求和，从而得到输出图像的像素值。滤波可以根据滤波器的设计和权重分布，实现不同的效果。
+给出以下图片：
+进行三种滤波的演示：
+使用OpenCV库进行图像处理操作
+1. 均值滤波：
+均值滤波是一种线性平滑滤波方法，它用周围像素的平均值来替代当前像素值。均值滤波对图像中的噪声有较好的去除效果，同时能够一定程度上平滑图像。由于简单易实现，均值滤波通常用于实时应用或较低要求的去噪处理。
+import cv2
+import numpy as np
 
-            <li class="article-li">
-                <span class="article-date">2023-07-22</span>
-                <a class="article-read" href="/2023/07/22/决策树/"> 阅读全文 </span>
-                <a class="article-title" href="/2023/07/22/决策树/">决策树</a>
-                <div class="article-digest">
-                    决策树是一种常见的监督学习方法,用于分类和回归。
-主要思想:将数据递归地按特征分割,构建一个树形结构,表示输入和输出之间的映射关系。
-特点:非参数化模型,可以处理数值和分类数据,易于理解和解释。
-                    ...
-                </div>
-            </li>
-            
-        
+# 读取图像
+image = cv2.imread(&#39;image.jpg&#39;, cv2.IMREAD_GRAYSCALE)
 
-            <li class="article-li">
-                <span class="article-date">2023-07-20</span>
-                <a class="article-read" href="/2023/07/20/SVM/"> 阅读全文 </span>
-                <a class="article-title" href="/2023/07/20/SVM/">SVM</a>
-                <div class="article-digest">
-                    SVM(支持向量机)是一种常用的机器学习算法,主要用于分类问题,但是也可以扩展做回归任务。
-SVM的主要思想是:
+# 均值滤波
+blurred_image = cv2.blur(image, (5, 5))
 
-将样本映射到高维空间中,转换为线性可分问题。
-在高维空间中,存在很多分隔超平
-                    ...
-                </div>
-            </li>
-            
-        
-
-            <li class="article-li">
-                <span class="article-date">2023-07-25</span>
-                <a class="article-read" href="/2023/07/25/图像表示和图像增强（一）/"> 阅读全文 </span>
-                <a class="article-title" href="/2023/07/25/图像表示和图像增强（一）/">图像表示和图像增强（一）</a>
-                <div class="article-digest">
-                    图像表示
+# 显示原始图像和均值滤波后的图像
+cv2.imshow(&#39;Original Image&#39 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/07/25/%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA%EF%BC%88%E4%B8%80%EF%BC%89/" title="图像表示和图像增强（一）">图像表示和图像增强（一）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-25T03:43:08.000Z" title="发表于 2023-07-25 11:43:08">2023-07-25</time></span></div><div class="content">图像表示
 图像表示与获取主要包括:
 
 图像的数字化表示
 
 
 图像是连续的信号,需要通过采样和量化过程变为数字化的离散信号。
-采样间隔(Sample spacing)决定了图像的分辨率和包
-                    ...
-                </div>
-            </li>
-            
-        
+采样间隔(Sample spacing)决定了图像的分辨率和包含的信息量。
+量化表决定了图像的灰度级数(比特数)。
 
-            <li class="article-li">
-                <span class="article-date">2023-07-29</span>
-                <a class="article-read" href="/2023/07/29/图像表示和图像增强（二）/"> 阅读全文 </span>
-                <a class="article-title" href="/2023/07/29/图像表示和图像增强（二）/">图像表示和图像增强（二）</a>
-                <div class="article-digest">
-                    图像处理（二）
-滤波
-滤波是一种常见的信号处理技术，用于去除信号中的噪声、平滑信号、增强信号特征等。在图像处理中，滤波器（也称为卷积核或内核）在图像上滑动，对图像的每个像素点进行加权求和，从而得到
-                    ...
-                </div>
-            </li>
-            
-        
 
-            <li class="article-li">
-                <span class="article-date">2023-07-18</span>
-                <a class="article-read" href="/2023/07/18/逻辑回归/"> 阅读全文 </span>
-                <a class="article-title" href="/2023/07/18/逻辑回归/">逻辑回归</a>
-                <div class="article-digest">
-                    逻辑回归本质上是一个分类模型,用于预测输入数据属于哪个类别的概率。其基本思想是:
+颜色模式
+
+
+RGB色彩模式:颜色通过红绿蓝三个颜色通道的组合表示。
+灰度图像:只有灰度一个通道,表示图像的亮度信息。
+
+
+图像获取
+
+
+摄像机、图像传感器采集光线信息,转换为图像信号。
+医学成像(CT、MRI等)通过非光学方法获取图像。
+
+
+图像文件格式
+
+
+JPEG:有损压缩格式,文件大小较小。
+PNG:无损压缩格式,保留更多细节质量。
+TIFF:灵活的位图图像格式。
+
+
+图像存储
+
+
+像素网格存储:行序和列序存储。
+数据压缩:提高存储效率。
+
+图像从连续信号到数字化表示的过程,不同的颜色模式、文件格式,以及如何有效存储图像数据。这些构成了数字图像处理的基础。
+图像增强
+图像增强主要包括以下几种方法:
+1. 直方图均衡化
+
+改善图像的对比度,使得整个灰度范 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/07/22/%E5%86%B3%E7%AD%96%E6%A0%91/" title="决策树">决策树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-22T06:22:41.000Z" title="发表于 2023-07-22 14:22:41">2023-07-22</time></span></div><div class="content">决策树是一种常见的监督学习方法,用于分类和回归。
+主要思想:将数据递归地按特征分割,构建一个树形结构,表示输入和输出之间的映射关系。
+特点:非参数化模型,可以处理数值和分类数据,易于理解和解释。
+算法:常用ID3、C4.5、CART等,通过选取最优特征进行数据分割。
+
+分割标准:信息增益、GINI指数等,度量分割的好坏。
+停止条件:没有特征可选或达到树的最大深度。
+预测:从根节点开始,测试数据在树中传播,直到达叶节点获得预测。
+剪枝:防止过拟合,后剪枝或预剪枝。
+集成学习:决策树容易过拟合,通常使用随机森林、GBDT等集成学习方法。
+
+决策树通过递归分割构建树模型,易于理解和解释,是一种常用的基础分类与回归方法。
+下面通过鸢尾花数据来进行一个简单的演示：
+import os
+
+os.environ[&#39;PATH&#39;] = os.pathsep + r&#39;C:\Program Files (x86)\Graphviz2.38\bin&#39;
+
+from sklearn.datasets import load_iris
+from s ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/07/20/SVM/" title="SVM">SVM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-20T04:37:32.000Z" title="发表于 2023-07-20 12:37:32">2023-07-20</time></span></div><div class="content">SVM(支持向量机)是一种常用的机器学习算法,主要用于分类问题,但是也可以扩展做回归任务。
+SVM的主要思想是:
+
+将样本映射到高维空间中,转换为线性可分问题。
+在高维空间中,存在很多分隔超平面可以将不同类样本完全分开。SVM试图找到这些超平面的最优解,即最大间隔超平面,这样可以获得最佳的分类
+GENERALIZATION（泛化）能力。
+最大间隔超平面可以由支持向量决定,而支持向量就是离分隔超平面最近的样本点。
+通过核函数,SVM可以隐式地实现高维映射,并建立优化问题求解最大间隔超平面,
+thus分类模型。
+
+SVM决策超平面的推导过程:
+设训练样本为\(\{(x_1, y_1), (x_2, y_2),
+\cdots, (x_n, y_n)\}\),其中\(x_i \in
+\mathbb{R}^d\),\(y_i \in
+\{-1,+1\}\)。
+SVM的目标是找到一个分类超平面:
+\[w^Tx + b = 0\]
+将两类样本完全分开,且间隔尽可能大。
+定义样本\(x_i\)到超平面的函数间隔为:
+\[d_i = \frac{|w^Tx_i + ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/07/18/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" title="逻辑回归">逻辑回归</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-18T05:37:28.000Z" title="发表于 2023-07-18 13:37:28">2023-07-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="content">逻辑回归本质上是一个分类模型,用于预测输入数据属于哪个类别的概率。其基本思想是:
 
 构建一个线性函数,输入是样本特征,输出是样例属于某类的对数概率。
-将线性函数的输出通过sigmoid函数转换为
-                    ...
-                </div>
-            </li>
-            
-        
+将线性函数的输出通过sigmoid函数转换为概率值。
+根据最大概率,对样本进行分类预测。
+通过最大化似然估计或最小化交叉熵损失,训练线性模型的参数。
 
-            <li class="article-li">
-                <span class="article-date">2023-06-30</span>
-                <a class="article-read" href="/2023/06/30/数据结构课程实习/"> 阅读全文 </span>
-                <a class="article-title" href="/2023/06/30/数据结构课程实习/">数据结构课程实习</a>
-                <div class="article-digest">
-                    实习内容
-一、马踏棋盘
-问题描述
-将马随机放在国际象棋的8×8棋盘[0～7][0～7]的某个方格中，马按走棋规则进行移动。要求每个方格只进入一次，走遍棋盘上全部64个方格。编制递归和非递归程序，
-                    ...
-                </div>
-            </li>
-            
-        
+具体实现原理:
+假设逻辑回归为二分类,线性函数为:
+\[z = w_1 x_1 + w_2 x_2 + ... + w_n x_n +
+b\]
+其中:
 
-            <li class="article-li">
-                <span class="article-date">2023-07-16</span>
-                <a class="article-read" href="/2023/07/16/线性回归/"> 阅读全文 </span>
-                <a class="article-title" href="/2023/07/16/线性回归/">线性回归</a>
-                <div class="article-digest">
-                    线性回归是一种基础而且常用的机器学习算法，顾名思义是一个回归模型。
+\(z\) - 模型的预测值
+\(x_1, x_2,...,x_n\) - \(n\)个特征变量
+\(w_1, w_2,...,w_n\) - \(n\)个特征变量对应的模型参数权重
+\(b\) - 模型的偏置项
+
+将z代入sigmoid函数求概率:
+\[p = \frac{1}{1+e^{-z}}\]
+其中: p表示输入样本为正类的概率。
+则逻辑回归的损失函数为负对数似然或交叉熵。
+通过梯度下降算法训练w和b,最小化损失,完成模型。
+预测时,计算新样本的概率p,如果p&gt;0.5则预测为正 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" title="线性回归">线性回归</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-16T07:48:31.000Z" title="发表于 2023-07-16 15:48:31">2023-07-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="content">线性回归是一种基础而且常用的机器学习算法，顾名思义是一个回归模型。
 它的假设是，输出y可以被输入x以线性的方式预测
 y = wx + b,
 其中，w和b是模型要学习的参数。
-线性回归的目标是求
-                    ...
-                </div>
-            </li>
+线性回归的目标是求解w和b，使得预测输出y与真实输出之间的误差最小。
+线性回归的损失函数通常使用均方误差作为衡量指标:
+\[MSE = \frac{1}{n} \sum_{i=1}^{n}
+(Y_i - \hat{Y}_i)^2\]
+其中:
+
+\(n\) - 样本数量
+\(Y_i\) - 第\(i\)个样本的真实值
+\(\hat{Y}_i\) - 第\(i\)个样本的预测值
+\(\sum\) -
+求和符号,对所有样本求和解析:
+\((Y_i - \hat{Y}_i)\) 表示第\(i\)个样本的预测误差,即真实值与预测值之
+\((Y_i - \hat{Y}_i)^2\)
+对预测误差进行平方,避免正负误差相抵消,误差可能为负也可能为正，取平方有一个特性，它惩罚更大的错误更多。
+\(\frac{1}{n}\)
+求样本平均值,防止样本数量影响所以MSE是每个样本平方误差之和的平均值, ...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/07/03/Front-matter%E7%A4%BA%E4%BE%8B/" title="Front-matter示例">Front-matter示例</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-03T06:53:50.000Z" title="发表于 2023-07-03 14:53:50">2023-07-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Hexo/">Hexo</a></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2023/06/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BE%E7%A8%8B%E5%AE%9E%E4%B9%A0/" title="数据结构实习">数据结构实习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-30T10:42:10.000Z" title="发表于 2023-06-30 18:42:10">2023-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BE%E7%A8%8B/">课程</a></span></div><div class="content">实习内容
+一、马踏棋盘
+问题描述
+将马随机放在国际象棋的8×8棋盘[0～7][0～7]的某个方格中，马按走棋规则进行移动。要求每个方格只进入一次，走遍棋盘上全部64个方格。编制递归和非递归程序，求出马的行走路线，并按求出的行走路线，将数字1，2，…，64依次填入一个8×8的方阵，输出之。
+程序代码
+棋盘定义
+#define ROW 8
+#define COL 8
+#define MAX_STEPS ROW*COL
+定义每次的改变的相对坐标
+int move_x[8] = &#123; 1, 2, 2, 1, -1, -2, -2, -1 &#125;;
+int move_y[8] = &#123; 2, 1, -1, -2, -2, -1, 1, 2 &#125;;
+方法1：DFS（递归）
+
+Dfs 函数是深度优先遍历函数，使用递归方式实现。
+接受二维数组 path 表示棋盘，m 和
+n 表示当前位置的坐标，edge
+表示棋盘边长，count 表示已经访问的格子数。
+函数首先判断是否已经访问了所有的格子，如果是则直接返回。
+然后判断当前位置是否在棋 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">youyouhangyong</div><div class="author-info__description">基于Hexo的个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/youyouhangyong"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/youyouhangyong" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:youyouhangyong@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/13/%E4%BD%BF%E7%94%A8Unity%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B1%BB%E4%BC%BCMC%E7%9A%84%E6%B8%B8%E6%88%8F%E5%9C%BA%E6%99%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="使用Unity创建一个类似MC的游戏场景（一）">使用Unity创建一个类似MC的游戏场景（一）</a><time datetime="2024-08-13T11:58:37.000Z" title="发表于 2024-08-13 19:58:37">2024-08-13</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/07/29/%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA%EF%BC%88%E4%BA%8C%EF%BC%89/" title="图像表示和图像增强（二）">图像表示和图像增强（二）</a><time datetime="2023-07-29T05:44:48.000Z" title="发表于 2023-07-29 13:44:48">2023-07-29</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/07/25/%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA%EF%BC%88%E4%B8%80%EF%BC%89/" title="图像表示和图像增强（一）">图像表示和图像增强（一）</a><time datetime="2023-07-25T03:43:08.000Z" title="发表于 2023-07-25 11:43:08">2023-07-25</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/07/22/%E5%86%B3%E7%AD%96%E6%A0%91/" title="决策树">决策树</a><time datetime="2023-07-22T06:22:41.000Z" title="发表于 2023-07-22 14:22:41">2023-07-22</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/07/20/SVM/" title="SVM">SVM</a><time datetime="2023-07-20T04:37:32.000Z" title="发表于 2023-07-20 12:37:32">2023-07-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
             
-        
-
-            <li class="article-li">
-                <span class="article-date">2024-08-13</span>
-                <a class="article-read" href="/2024/08/13/使用Unity创建一个类似MC的游戏场景（一）/"> 阅读全文 </span>
-                <a class="article-title" href="/2024/08/13/使用Unity创建一个类似MC的游戏场景（一）/">使用Unity创建一个类似MC的游戏场景（一）</a>
-                <div class="article-digest">
-                    前言使用Unity来制作一个类似Minecraft的游戏场景。这个系列的文章将记录我制作这个游戏场景的过程。
-我们首先将建立一个体素引擎，用于生成游戏中的区块（chunk）
-准备工作首先，我们需要准备
-                    ...
-                </div>
-            </li>
-            
-        
-    </ul>
-</div>
-        </div>
-        
-    </div>
-
-    <!-- 引入 js 文件 -->
-    
-<script src="/js/main.js"></script>
-
-
-    <!-- 引入代码高亮的 js -->
-    
-<script src="/lib/highlight/highlight.min.js"></script>
-
-    <script>hljs.initHighlightingOnLoad();</script>
-
-    <!-- 引入 jquery -->
-    
-<script src="/lib/jquery-3.5.1.min.js"></script>
-
-    <script>hljs.initHighlightingOnLoad();</script>
-
-    <!-- 引入 pjax -->
-    
-<script src="/lib/jquery.pjax.js"></script>
-
-
-
-    <script src="https://blog-static.cnblogs.com/files/yyhh/L2Dwidget.min.js"></script>
-
-    <script type="text/javascript">
-    L2Dwidget.init();
-</script>
-
-</body>
-</html>
-                                                                                                     
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">机器学习</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">游戏开发</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B/"><span class="card-category-list-name">课程</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Unity/" style="font-size: 1.1em; color: #999">Unity</a> <a href="/tags/Minecraft/" style="font-size: 1.1em; color: #999">Minecraft</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">游戏开发</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">深度学习</a> <a href="/tags/Markdown/" style="font-size: 1.1em; color: #999">Markdown</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">数据结构</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">9</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2023-06-30T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-08-16T02:37:33.751Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/1689498610985.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By youyouhangyong</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: (subtitleType) => {
+    if (false) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+</script><script>function subtitleType () {
+  if (false) {
+    typedJSFn.init(["躺平"])
+  } else {
+    document.getElementById("subtitle").textContent = "躺平"
+  }
+}
+typedJSFn.run(subtitleType)</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
