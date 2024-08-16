@@ -156,13 +156,6 @@
   </url>
   
   <url>
-    <loc>https://youyouhangyong.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2024-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://youyouhangyong.github.io/tags/Unity/</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -183,6 +176,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://youyouhangyong.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2024-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -193,7 +193,7 @@
   </url>
   
   <url>
-    <loc>https://youyouhangyong.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://youyouhangyong.github.io/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -207,7 +207,7 @@
   </url>
   
   <url>
-    <loc>https://youyouhangyong.github.io/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/</loc>
+    <loc>https://youyouhangyong.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

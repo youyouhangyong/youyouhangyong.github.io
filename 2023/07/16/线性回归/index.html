@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>线性回归 | YYHY's Blog</title><meta name="author" content="youyouhangyong"><meta name="copyright" content="youyouhangyong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="线性回归是一种基础而且常用的机器学习算法，顾名思义是一个回归模型。 它的假设是，输出y可以被输入x以线性的方式预测 y &#x3D; wx + b, 其中，w和b是模型要学习的参数。 线性回归的目标是求解w和b，使得预测输出y与真实输出之间的误差最小。 线性回归的损失函数通常使用均方误差作为衡量指标: \[MSE &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} (Y_i - \hat">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>线性回归 | 悠攸涵泳</title><meta name="author" content="youyouhangyong"><meta name="copyright" content="youyouhangyong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="线性回归是一种基础而且常用的机器学习算法，顾名思义是一个回归模型。 它的假设是，输出y可以被输入x以线性的方式预测 y &#x3D; wx + b, 其中，w和b是模型要学习的参数。 线性回归的目标是求解w和b，使得预测输出y与真实输出之间的误差最小。 线性回归的损失函数通常使用均方误差作为衡量指标: $$MSE &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} (Y_i - \">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线性回归">
 <meta property="og:url" content="https://youyouhangyong.github.io/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/index.html">
-<meta property="og:site_name" content="YYHY&#39;s Blog">
-<meta property="og:description" content="线性回归是一种基础而且常用的机器学习算法，顾名思义是一个回归模型。 它的假设是，输出y可以被输入x以线性的方式预测 y &#x3D; wx + b, 其中，w和b是模型要学习的参数。 线性回归的目标是求解w和b，使得预测输出y与真实输出之间的误差最小。 线性回归的损失函数通常使用均方误差作为衡量指标: \[MSE &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} (Y_i - \hat">
+<meta property="og:site_name" content="悠攸涵泳">
+<meta property="og:description" content="线性回归是一种基础而且常用的机器学习算法，顾名思义是一个回归模型。 它的假设是，输出y可以被输入x以线性的方式预测 y &#x3D; wx + b, 其中，w和b是模型要学习的参数。 线性回归的目标是求解w和b，使得预测输出y与真实输出之间的误差最小。 线性回归的损失函数通常使用均方误差作为衡量指标: $$MSE &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} (Y_i - \">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://youyouhangyong.github.io/img/tx.jpg">
 <meta property="article:published_time" content="2023-07-16T07:48:31.000Z">
@@ -18,7 +18,7 @@
   localSearch: undefined,
   translate: undefined,
   noticeOutdate: undefined,
-  highlight: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -163,181 +163,119 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="YYHY's Blog" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/1689498778175.png')"><nav id="nav"><span id="blog-info"><a href="/" title="YYHY's Blog"><span class="site-name">YYHY's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">线性回归</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-16T07:48:31.000Z" title="发表于 2023-07-16 15:48:31">2023-07-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-18T06:57:33.371Z" title="更新于 2023-07-18 14:57:33">2023-07-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="线性回归"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>线性回归是一种基础而且常用的机器学习算法，顾名思义是一个回归模型。</p>
-<p>它的假设是，<strong>输出y可以被输入x以线性的方式预测</strong>
-<code>y = wx + b</code>,</p>
+    })(window)</script><link rel="stylesheet" href="/static/css/vs.css"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="悠攸涵泳" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/tx.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/1689498778175.png')"><nav id="nav"><span id="blog-info"><a href="/" title="悠攸涵泳"><span class="site-name">悠攸涵泳</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">线性回归</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-16T07:48:31.000Z" title="发表于 2023-07-16 15:48:31">2023-07-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-18T06:57:33.371Z" title="更新于 2023-07-18 14:57:33">2023-07-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="线性回归"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>线性回归是一种基础而且常用的机器学习算法，顾名思义是一个回归模型。</p>
+<p>它的假设是，<strong>输出y可以被输入x以线性的方式预测</strong> <code>y = wx + b</code>,</p>
 <p>其中，w和b是模型要学习的参数。</p>
 <p><strong>线性回归的目标是求解w和b</strong>，使得预测输出y与真实输出之间的误差最小。</p>
 <p>线性回归的损失函数通常使用均方误差作为衡量指标:</p>
-<p><strong><span class="math display">\[MSE = \frac{1}{n} \sum_{i=1}^{n}
-(Y_i - \hat{Y}_i)^2\]</span></strong></p>
+<p><strong>$$MSE &#x3D; \frac{1}{n} \sum_{i&#x3D;1}^{n} (Y_i - \hat{Y}_i)^2$$</strong></p>
 <p>其中:</p>
 <ul>
-<li><span class="math inline">\(n\)</span> - 样本数量</li>
-<li><span class="math inline">\(Y_i\)</span> - 第<span
-class="math inline">\(i\)</span>个样本的真实值</li>
-<li><span class="math inline">\(\hat{Y}_i\)</span> - 第<span
-class="math inline">\(i\)</span>个样本的预测值</li>
-<li><span class="math inline">\(\sum\)</span> -
-求和符号,对所有样本求和解析:</li>
-<li><span class="math inline">\((Y_i - \hat{Y}_i)\)</span> 表示第<span
-class="math inline">\(i\)</span>个样本的预测误差,即真实值与预测值之</li>
-<li><span class="math inline">\((Y_i - \hat{Y}_i)^2\)</span>
-对预测误差进行平方,避免正负误差相抵消,误差可能为负也可能为正，取平方有一个特性，它惩罚更大的错误更多。</li>
-<li><span class="math inline">\(\frac{1}{n}\)</span>
-求样本平均值,防止样本数量影响所以MSE是每个样本平方误差之和的平均值,反映了模型预测值与真实值的偏差程度。</li>
+<li>$n$ - 样本数量</li>
+<li>$Y_i$ - 第$i$个样本的真实值</li>
+<li>$\hat{Y}_i$ - 第$i$个样本的预测值 </li>
+<li>$\sum$ - 求和符号,对所有样本求和解析:</li>
+<li>$(Y_i - \hat{Y}_i)$ 表示第$i$个样本的预测误差,即真实值与预测值之</li>
+<li>$(Y_i - \hat{Y}_i)^2$ 对预测误差进行平方,避免正负误差相抵消,误差可能为负也可能为正，取平方有一个特性，它惩罚更大的错误更多。</li>
+<li>$\frac{1}{n}$ 求样本平均值,防止样本数量影响所以MSE是每个样本平方误差之和的平均值,反映了模型预测值与真实值的偏差程度。</li>
 </ul>
 <p>下面是一个简单的示例，搞明白线性回归是干什么的：</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成数据</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># x和y分别是一个一维数组,表示样本的特征和标签</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>])</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># w和b表示线性模型的参数,初始化为0</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> <span class="dv">0</span> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># lr是梯度下降的学习率,epochs是训练轮数</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">0.01</span> </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 训练</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    y_pred <span class="op">=</span> w<span class="op">*</span>x <span class="op">+</span> b <span class="co">#计算预测值   </span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> np.square(y_pred <span class="op">-</span> y).mean()</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> w <span class="op">-</span> lr<span class="op">*</span><span class="dv">2</span><span class="op">/</span><span class="bu">len</span>(x) <span class="op">*</span> np.<span class="bu">sum</span>((y_pred <span class="op">-</span> y)<span class="op">*</span>x) </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> b <span class="op">-</span> lr<span class="op">*</span><span class="dv">2</span><span class="op">/</span><span class="bu">len</span>(x) <span class="op">*</span> np.<span class="bu">sum</span>((y_pred <span class="op">-</span> y))</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(w, b)</span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成数据</span></span><br><span class="line"><span class="comment"># x和y分别是一个一维数组,表示样本的特征和标签</span></span><br><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line">y = np.array([<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">11</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># w和b表示线性模型的参数,初始化为0</span></span><br><span class="line">w = <span class="number">0</span> </span><br><span class="line">b = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># lr是梯度下降的学习率,epochs是训练轮数</span></span><br><span class="line">lr = <span class="number">0.01</span> </span><br><span class="line">epochs = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(epochs):</span><br><span class="line">    y_pred = w*x + b <span class="comment">#计算预测值   </span></span><br><span class="line">    loss = np.square(y_pred - y).mean()</span><br><span class="line">    w = w - lr*<span class="number">2</span>/<span class="built_in">len</span>(x) * np.<span class="built_in">sum</span>((y_pred - y)*x) </span><br><span class="line">    b = b - lr*<span class="number">2</span>/<span class="built_in">len</span>(x) * np.<span class="built_in">sum</span>((y_pred - y))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(w, b)</span><br></pre></td></tr></table></figure>
+
 <p>结果</p>
-<pre><code>2.003880582342283 0.9859898664422495</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.003880582342283 0.9859898664422495</span><br></pre></td></tr></table></figure>
+
 <p>步骤：</p>
-<ol type="1">
+<ol>
 <li>生成测试数据:<strong>x</strong>和<strong>y</strong>数组分别代表<strong>输入</strong>和<strong>输出</strong>,这里生成了5个数据点。</li>
 <li>参数初始化:模型参数w和b初始化为0。</li>
 <li>定义超参数:<strong>学习率</strong>lr为0.01,<strong>训练轮数</strong>epochs为1000。</li>
 <li>训练:for循环表示进行1000轮训练,每轮都进行以下步骤:</li>
 </ol>
 <ul>
-<li><ol type="1">
-<li>根据当前参数w和b,计算预测输出y_pred。</li>
-</ol></li>
-<li><ol start="2" type="1">
-<li>计算损失函数loss,这里使用<strong>均方误差</strong>。</li>
-</ol></li>
-<li><ol start="3" type="1">
-<li>根据损失函数<strong>求导</strong>得出w和b的梯度。</li>
-</ol></li>
-<li><ol start="4" type="1">
-<li>使用梯度下降算法更新w和b,其中lr是学习率。</li>
-</ol></li>
+<li>(1) 根据当前参数w和b,计算预测输出y_pred。 </li>
+<li>(2) 计算损失函数loss,这里使用<strong>均方误差</strong>。</li>
+<li>(3) 根据损失函数<strong>求导</strong>得出w和b的梯度。</li>
+<li>(4) 使用梯度下降算法更新w和b,其中lr是学习率。</li>
 </ul>
 <p>​5. 打印出训练后的w和b参数。</p>
 <p>分析：</p>
 <p>针对这个线性回归代码,最理想的输出结果是:</p>
-<pre><code>w = 2 
-b = 1</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = 2 </span><br><span class="line">b = 1</span><br></pre></td></tr></table></figure>
+
 <p>因为我们生成的示例数据符合这样一个模型:</p>
-<p><code>y = 2x + 1 y = 2x + 1</code></p>
-<p>也就是说,真实的模型参数应该是: w(权重参数)= 2 b(偏置参数)= 1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = 2x + 1</span><br></pre></td></tr></table></figure>
+
+<p>也就是说,真实的模型参数应该是:<br>w(权重参数)&#x3D; 2<br>b(偏置参数)&#x3D; 1</p>
 <p>如果模型训练完美,经过足够多的迭代优化,我们期望的参数w和b会收敛到这两个值。</p>
 <p>具体来看,在这个代码示例中:</p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">11</span>])</span></code></pre></div>
-<p>这些样本点正好符合公式 y = 2x + 1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line">y = np.array([<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">11</span>])</span><br></pre></td></tr></table></figure>
+
+<p>这些样本点正好符合公式 y &#x3D; 2x + 1。</p>
 <p>所以当代码训练结束后,如果我们的w和b分别收敛到2和1,就说明模型训练是成功的,完美拟合了这个线性关系。</p>
 <p>其中调节线性回归模型的学习率会对训练过程和结果产生不同的影响:</p>
-<ol type="1">
+<ol>
 <li>学习率增加:</li>
 </ol>
 <ul>
-<li><p>收敛速度会变快,需要的迭代轮数会减少。</p></li>
-<li><p>但是容易产生参数的振荡,难以收敛到稳定优化的结果。</p></li>
-<li><p>最终模型的预测效果可能会变差。</p></li>
+<li><p>收敛速度会变快,需要的迭代轮数会减少。</p>
+</li>
+<li><p>但是容易产生参数的振荡,难以收敛到稳定优化的结果。</p>
+</li>
+<li><p>最终模型的预测效果可能会变差。</p>
+</li>
 </ul>
-<ol start="2" type="1">
+<ol start="2">
 <li>学习率减小:</li>
 </ol>
 <ul>
-<li><p>收敛速度会变慢,需要更多的迭代轮数。</p></li>
-<li><p>参数更新会更加稳定和平滑。</p></li>
-<li><p>最终可以收敛到一个较优的模型,预测效果更好。</p></li>
-<li><p>但是计算代价更高,需要花费更多时间。</p></li>
+<li><p>收敛速度会变慢,需要更多的迭代轮数。</p>
+</li>
+<li><p>参数更新会更加稳定和平滑。</p>
+</li>
+<li><p>最终可以收敛到一个较优的模型,预测效果更好。</p>
+</li>
+<li><p>但是计算代价更高,需要花费更多时间。</p>
+</li>
 </ul>
 <p>所以学习率的选择需要找到最佳平衡点:</p>
 <ul>
-<li><p>学习率不能太大,否则容易产生参数振荡。</p></li>
-<li><p>学习率也不能太小,否则收敛速度过慢。</p></li>
+<li><p>学习率不能太大,否则容易产生参数振荡。</p>
+</li>
+<li><p>学习率也不能太小,否则收敛速度过慢。</p>
+</li>
 </ul>
 <p>一个通用的方法是从一个较小的学习率开始,如果发现收敛速度过慢,可以适当增加学习率;如果出现振荡,则应该降低学习率。</p>
 <p>下面再给出一个较复杂的例子：</p>
 <p>这个线性回归的代码示例:</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+
 <p>导入所需的numpy和matplotlib库。</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
 <p>设置随机数种子,这样可以重现结果。</p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">100</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span></code></pre></div>
-<p>使用numpy随机生成100组训练数据,x范围是0到100,y计算方式是y=2x+3加上正态噪声。</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LinearRegression()</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>model.fit(x.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), y) </span></code></pre></div>
-<p>使用scikit-learn中的LinearRegression模型,拟合训练数据x和y。需要reshape
-x 为二维。</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">100</span>).reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(x_test)</span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.random.uniform(<span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">y = <span class="number">2</span>*x + <span class="number">3</span> + np.random.normal(<span class="number">0</span>, <span class="number">10</span>, <span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<p>使用numpy随机生成100组训练数据,x范围是0到100,y计算方式是y&#x3D;2x+3加上正态噪声。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">model = LinearRegression()</span><br><span class="line">model.fit(x.reshape(-<span class="number">1</span>,<span class="number">1</span>), y) </span><br></pre></td></tr></table></figure>
+
+<p>使用scikit-learn中的LinearRegression模型,拟合训练数据x和y。需要reshape x 为二维。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x_test = np.linspace(<span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>).reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">y_pred = model.predict(x_test)</span><br></pre></td></tr></table></figure>
+
 <p>生成0-100范围内的100个预测点x_test,用训练好的模型model预测对应的y值,得到y_pred。</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, y)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.plot(x_test, y_pred, color<span class="op">=</span><span class="st">&#39;r&#39;</span>) </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;y&#39;</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.plot(x_test, y_pred, color=<span class="string">&#x27;r&#x27;</span>) </span><br><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p>使用matplotlib画出训练数据的散点图,以及用红色线画出预测的线性回归直线。增加坐标标签。</p>
 <p>这样我们就可以直观地看到了模型对数据的拟合效果。</p>
 <p>完整代码：</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成100组随机数据</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">100</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">3</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>) </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 拟合线性回归模型</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LinearRegression()</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>model.fit(x.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), y)</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 预测</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">100</span>).reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> model.predict(x_test)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 画图</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, y) </span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>plt.plot(x_test, y_pred, color<span class="op">=</span><span class="st">&#39;r&#39;</span>)</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&#39;y&#39;</span>)</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p>我们先生成了100组随机数据,其中y满足公式y=2x+3加上一点正态扰动。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成100组随机数据</span></span><br><span class="line">np.random.seed(<span class="number">1</span>)</span><br><span class="line">x = np.random.uniform(<span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">y = <span class="number">2</span>*x + <span class="number">3</span> + np.random.normal(<span class="number">0</span>, <span class="number">10</span>, <span class="number">100</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 拟合线性回归模型</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line">model = LinearRegression()</span><br><span class="line">model.fit(x.reshape(-<span class="number">1</span>,<span class="number">1</span>), y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">x_test = np.linspace(<span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>).reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">y_pred = model.predict(x_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 画图</span></span><br><span class="line">plt.scatter(x, y) </span><br><span class="line">plt.plot(x_test, y_pred, color=<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>我们先生成了100组随机数据,其中y满足公式y&#x3D;2x+3加上一点正态扰动。</p>
 <p>然后我们使用scikit-learn中的LinearRegression模型对数据进行线性回归拟合。</p>
 <p>最后我们生成100个等间隔的x,用模型预测对应的y,并画出散点图和预测的线性回归直线。</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCIMXMq"><img
-src="https://s1.ax1x.com/2023/07/16/pCIMXMq.png"
-alt="pCIMXMq.png" /></a></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://youyouhangyong.github.io">youyouhangyong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://youyouhangyong.github.io/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">https://youyouhangyong.github.io/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://youyouhangyong.github.io" target="_blank">YYHY's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></div><div class="post_share"><div class="social-share" data-image="/img/tx.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/07/03/Front-matter%E7%A4%BA%E4%BE%8B/" title="Front-matter示例"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Front-matter示例</div></div></a></div><div class="next-post pull-right"><a href="/2023/07/18/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" title="逻辑回归"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">逻辑回归</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/07/22/%E5%86%B3%E7%AD%96%E6%A0%91/" title="决策树"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-22</div><div class="title">决策树</div></div></a></div><div><a href="/2023/07/20/SVM/" title="SVM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-20</div><div class="title">SVM</div></div></a></div><div><a href="/2023/07/18/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" title="逻辑回归"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-18</div><div class="title">逻辑回归</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">youyouhangyong</div><div class="author-info__description">基于Hexo的个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/youyouhangyong"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/youyouhangyong" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:youyouhangyong@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这是我的博客</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/13/%E4%BD%BF%E7%94%A8Unity%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B1%BB%E4%BC%BCMC%E7%9A%84%E6%B8%B8%E6%88%8F%E5%9C%BA%E6%99%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="使用Unity创建一个类似MC的游戏场景（一）">使用Unity创建一个类似MC的游戏场景（一）</a><time datetime="2024-08-13T11:58:37.000Z" title="发表于 2024-08-13 19:58:37">2024-08-13</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/07/29/%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA%EF%BC%88%E4%BA%8C%EF%BC%89/" title="图像表示和图像增强（二）">图像表示和图像增强（二）</a><time datetime="2023-07-29T05:44:48.000Z" title="发表于 2023-07-29 13:44:48">2023-07-29</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/07/25/%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA%EF%BC%88%E4%B8%80%EF%BC%89/" title="图像表示和图像增强（一）">图像表示和图像增强（一）</a><time datetime="2023-07-25T03:43:08.000Z" title="发表于 2023-07-25 11:43:08">2023-07-25</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/07/22/%E5%86%B3%E7%AD%96%E6%A0%91/" title="决策树">决策树</a><time datetime="2023-07-22T06:22:41.000Z" title="发表于 2023-07-22 14:22:41">2023-07-22</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2023/07/20/SVM/" title="SVM">SVM</a><time datetime="2023-07-20T04:37:32.000Z" title="发表于 2023-07-20 12:37:32">2023-07-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/1689498778175.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By youyouhangyong</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pCIMXMq"><img src="https://s1.ax1x.com/2023/07/16/pCIMXMq.png" alt="pCIMXMq.png"></a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://youyouhangyong.github.io">youyouhangyong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://youyouhangyong.github.io/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">https://youyouhangyong.github.io/2023/07/16/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://youyouhangyong.github.io" target="_blank">悠攸涵泳</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></div><div class="post_share"><div class="social-share" data-image="/img/tx.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/07/03/Front-matter%E7%A4%BA%E4%BE%8B/" title="Front-matter示例"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Front-matter示例</div></div></a></div><div class="next-post pull-right"><a href="/2023/07/18/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" title="逻辑回归"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">逻辑回归</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/07/20/SVM/" title="SVM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-20</div><div class="title">SVM</div></div></a></div><div><a href="/2023/07/22/%E5%86%B3%E7%AD%96%E6%A0%91/" title="决策树"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-22</div><div class="title">决策树</div></div></a></div><div><a href="/2023/07/18/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" title="逻辑回归"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-18</div><div class="title">逻辑回归</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/tx.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">youyouhangyong</div><div class="author-info__description">基于Hexo的个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/youyouhangyong"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/youyouhangyong" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:youyouhangyong@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这是我的博客</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/13/%E4%BD%BF%E7%94%A8Unity%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%B1%BB%E4%BC%BCMC%E7%9A%84%E6%B8%B8%E6%88%8F%E5%9C%BA%E6%99%AF%EF%BC%88%E4%B8%80%EF%BC%89/" title="使用Unity创建一个类似MC的游戏场景（一）">使用Unity创建一个类似MC的游戏场景（一）</a><time datetime="2024-08-13T11:58:37.000Z" title="发表于 2024-08-13 19:58:37">2024-08-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/29/%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA%EF%BC%88%E4%BA%8C%EF%BC%89/" title="图像表示和图像增强（二）">图像表示和图像增强（二）</a><time datetime="2023-07-29T05:44:48.000Z" title="发表于 2023-07-29 13:44:48">2023-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/25/%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA%EF%BC%88%E4%B8%80%EF%BC%89/" title="图像表示和图像增强（一）">图像表示和图像增强（一）</a><time datetime="2023-07-25T03:43:08.000Z" title="发表于 2023-07-25 11:43:08">2023-07-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/22/%E5%86%B3%E7%AD%96%E6%A0%91/" title="决策树">决策树</a><time datetime="2023-07-22T06:22:41.000Z" title="发表于 2023-07-22 14:22:41">2023-07-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/20/SVM/" title="SVM">SVM</a><time datetime="2023-07-20T04:37:32.000Z" title="发表于 2023-07-20 12:37:32">2023-07-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/1689498778175.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By youyouhangyong</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
