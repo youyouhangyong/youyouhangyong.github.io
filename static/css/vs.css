@@ -1,3 +1,5 @@
+/* CSS */
+@import url(https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/firacode/6.2.0/fira_code.css);
 /* 代码高亮字体 */
 :root {
   --hl-color: #24292e;
@@ -72,8 +74,7 @@
   font-family:Fira Code!important;
 }
 
-/* CSS */
-@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+
 
 h1#site-title {
   font-size: 8vh!important;
