@@ -16,12 +16,12 @@ function init() {
     const scene = new THREE.Scene();
 
     const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.z = 5;
+    camera.position.z = 3;
 
     // 创建渲染器并启用 alpha 透明度
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setClearColor(0xffffff); // 设置背景为透明
+    renderer.setClearColor(0xffffff,0); // 设置背景为透明
     container.appendChild(renderer.domElement);
 
     // 添加环境光
@@ -38,6 +38,7 @@ function init() {
     loader.load('/models/model.gltf', function(gltf) {
         model = gltf.scene;
         model.rotation.y = Math.PI; // 使模型旋转180度，面向相机
+        model.position.set(0, -1, 0); // 将模型向下移动1个单位，使头部显示出来
         scene.add(model);
 
         // 获取各部位节点
