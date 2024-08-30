@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>决策树 | 悠攸涵泳</title><meta name="author" content="youyouhangyong"><meta name="copyright" content="youyouhangyong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="决策树是一种常见的监督学习方法,用于分类和回归。 主要思想:将数据递归地按特征分割,构建一个树形结构,表示输入和输出之间的映射关系。 特点:非参数化模型,可以处理数值和分类数据,易于理解和解释。 算法:常用ID3、C4.5、CART等,通过选取最优特征进行数据分割。  分割标准:信息增益、GINI指数等,度量分割的好坏。 停止条件:没有特征可选或达到树的最大深度。 预测:从根节点开始">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>决策树 | 悠攸涵泳</title><meta name="author" content="youyouhangyong"><meta name="copyright" content="youyouhangyong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="决策树是一种常见的监督学习方法,用于分类和回归。 主要思想:将数据递归地按特征分割,构建一个树形结构,表示输入和输出之间的映射关系。 特点:非参数化模型,可以处理数值和分类数据,易于理解和解释。 算法:常用ID3、C4.5、CART等,通过选取最优特征进行数据分割。  分割标准:信息增益、GINI指数等,度量分割的好坏。 停止条件:没有特征可选或达到树的最大深度。 预测:从根节点开始,测试数据在树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="决策树">
 <meta property="og:url" content="https://youyouhangyong.github.io/2023/07/22/%E5%86%B3%E7%AD%96%E6%A0%91/index.html">
 <meta property="og:site_name" content="悠攸涵泳">
-<meta property="og:description" content="决策树是一种常见的监督学习方法,用于分类和回归。 主要思想:将数据递归地按特征分割,构建一个树形结构,表示输入和输出之间的映射关系。 特点:非参数化模型,可以处理数值和分类数据,易于理解和解释。 算法:常用ID3、C4.5、CART等,通过选取最优特征进行数据分割。  分割标准:信息增益、GINI指数等,度量分割的好坏。 停止条件:没有特征可选或达到树的最大深度。 预测:从根节点开始">
+<meta property="og:description" content="决策树是一种常见的监督学习方法,用于分类和回归。 主要思想:将数据递归地按特征分割,构建一个树形结构,表示输入和输出之间的映射关系。 特点:非参数化模型,可以处理数值和分类数据,易于理解和解释。 算法:常用ID3、C4.5、CART等,通过选取最优特征进行数据分割。  分割标准:信息增益、GINI指数等,度量分割的好坏。 停止条件:没有特征可选或达到树的最大深度。 预测:从根节点开始,测试数据在树">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s21.ax1x.com/2024/08/28/pAACWeH.jpg">
 <meta property="article:published_time" content="2023-07-22T06:22:41.000Z">
@@ -147,11 +147,11 @@
     }
     detectApple()
     })(window)</script><link rel="stylesheet" href="/static/css/vs.css"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/js/prism/prism.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="悠攸涵泳" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s21.ax1x.com/2024/08/28/pAAMLo6.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E5%B7%A5%E5%85%B7%E7%AE%B1"><i class="fa-fw /toolbox/"></i><span> 1</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s21.ax1x.com/2024/08/28/pAACWeH.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="悠攸涵泳"><span class="site-name">悠攸涵泳</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E5%B7%A5%E5%85%B7%E7%AE%B1"><i class="fa-fw /toolbox/"></i><span> 1</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">决策树</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-22T06:22:41.000Z" title="发表于 2023-07-22 14:22:41">2023-07-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-25T03:39:47.970Z" title="更新于 2023-07-25 11:39:47">2023-07-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="决策树"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>决策树是一种常见的监督学习方法,用于分类和回归。</p>
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s21.ax1x.com/2024/08/28/pAAMLo6.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/toolbox/"><i class="fa-fw fas fa-toolbox"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s21.ax1x.com/2024/08/28/pAACWeH.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="悠攸涵泳"><span class="site-name">悠攸涵泳</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/toolbox/"><i class="fa-fw fas fa-toolbox"></i><span> 工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">决策树</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-22T06:22:41.000Z" title="发表于 2023-07-22 14:22:41">2023-07-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-25T03:39:47.970Z" title="更新于 2023-07-25 11:39:47">2023-07-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="决策树"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>决策树是一种常见的监督学习方法,用于分类和回归。</p>
 <p>主要思想:将数据递归地按特征分割,构建一个树形结构,表示输入和输出之间的映射关系。</p>
 <p>特点:非参数化模型,可以处理数值和分类数据,易于理解和解释。</p>
 <p>算法:常用ID3、C4.5、CART等,通过选取最优特征进行数据分割。</p>
-<ol type="1">
+<ol>
 <li>分割标准:信息增益、GINI指数等,度量分割的好坏。</li>
 <li>停止条件:没有特征可选或达到树的最大深度。</li>
 <li>预测:从根节点开始,测试数据在树中传播,直到达叶节点获得预测。</li>
@@ -161,19 +161,24 @@
 <p>决策树通过递归分割构建树模型,易于理解和解释,是一种常用的基础分类与回归方法。</p>
 <p>下面通过鸢尾花数据来进行一个简单的演示：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><br>os.environ[<span class="hljs-string">&#x27;PATH&#x27;</span>] = os.pathsep + <span class="hljs-string">r&#x27;C:\Program Files (x86)\Graphviz2.38\bin&#x27;</span><br><br><span class="hljs-keyword">from</span> sklearn.datasets <span class="hljs-keyword">import</span> load_iris<br><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> tree<br><span class="hljs-keyword">import</span> graphviz<br><br>iris = load_iris() <span class="hljs-comment"># 加载鸢尾花原始数据集</span><br>X = iris.data[:, :<span class="hljs-number">2</span>]  <span class="hljs-comment"># 取前两个特征，已经分割好</span><br>y = iris.target <span class="hljs-comment"># 将特征存储在变量X中，而目标值（类别）存储在变量y中</span><br><br>clf = tree.DecisionTreeClassifier()<br>clf = clf.fit(X, y)  <span class="hljs-comment"># 创建了一个决策树分类器并将数据 X 和对应的目标值y用于训练模型。</span><br><br><span class="hljs-comment"># 可视化决策树</span><br>dot_data = tree.export_graphviz(clf, out_file=<span class="hljs-literal">None</span>)<span class="hljs-comment"># export_graphviz可以导出决策树的DOT图描述文件</span><br>graph = graphviz.Source(dot_data)<br>graph.render(<span class="hljs-string">&quot;Iris&quot;</span>)<br><br><span class="hljs-comment"># 对新样本进行预测</span><br><span class="hljs-built_in">print</span>(clf.predict([[<span class="hljs-number">2.4</span>, <span class="hljs-number">2.05</span>]]))  <span class="hljs-comment"># [0]</span><br><span class="hljs-built_in">print</span>(clf.predict([[<span class="hljs-number">4.9</span>, <span class="hljs-number">2.05</span>]]))  <span class="hljs-comment"># [1]</span><br><br></code></pre></td></tr></table></figure>
-<ol type="1">
+
+<ol>
 <li><p>iris原始数据集存在于scikit-learn数据集模块中,可以通过load_iris()直接导入使用。</p>
-<ol type="1">
-<li>iris.data -
-150x4的NumPy数组,包含4个特征,分别是花萼长度、花萼宽度、花瓣长度、花瓣宽度，这里只取前了两个特征</li>
-<li>iris.target -
-150x1的NumPy数组,包含每朵鸢尾花对应的类别,0/1/2代表Setosa/Versicolor/Virginica</li>
-</ol></li>
-<li><p>通过代码提取iris的数据特征和目标值进行训练,得到一个决策树分类器模型clf。</p></li>
-<li><p>决策树模型clf包含了训练后的树结构,但此时树结构还没有可视化。</p></li>
-<li><p>使用export_graphviz可以导出决策树的DOT图描述文件。</p></li>
-<li><p>使用graphviz模块将DOT文件转换为图像格式,如PDF。</p></li>
-<li><p>所以最终我们得到了可视化的决策树图像iris.pdf。</p></li>
+<ol>
+<li>iris.data - 150x4的NumPy数组,包含4个特征,分别是花萼长度、花萼宽度、花瓣长度、花瓣宽度，这里只取前了两个特征</li>
+<li>iris.target - 150x1的NumPy数组,包含每朵鸢尾花对应的类别,0&#x2F;1&#x2F;2代表Setosa&#x2F;Versicolor&#x2F;Virginica</li>
+</ol>
+</li>
+<li><p>通过代码提取iris的数据特征和目标值进行训练,得到一个决策树分类器模型clf。</p>
+</li>
+<li><p>决策树模型clf包含了训练后的树结构,但此时树结构还没有可视化。</p>
+</li>
+<li><p>使用export_graphviz可以导出决策树的DOT图描述文件。</p>
+</li>
+<li><p>使用graphviz模块将DOT文件转换为图像格式,如PDF。</p>
+</li>
+<li><p>所以最终我们得到了可视化的决策树图像iris.pdf。</p>
+</li>
 </ol>
 
 
@@ -183,15 +188,17 @@
 
 
 
+
+
+
 <p>在决策树的图示中:</p>
-<p><strong>gini</strong>:表示该节点的基尼系数(Gini
-index),它衡量了该节点的不纯度,值越小表示样本集合的纯度越高。</p>
+<p><strong>gini</strong>:表示该节点的基尼系数(Gini index),它衡量了该节点的不纯度,值越小表示样本集合的纯度越高。</p>
 <p><strong>samples</strong>:表示该节点包含的样本数量。</p>
 <p><strong>value</strong>:表示该节点包含的不同类别的样本数目,是个数组。</p>
 <p>例如在根节点的信息:</p>
-<p>gini = 0.667</p>
-<p>samples = 150</p>
-<p>value = [50, 50, 50]</p>
+<p>gini &#x3D; 0.667</p>
+<p>samples &#x3D; 150</p>
+<p>value &#x3D; [50, 50, 50]</p>
 <p>意义是:</p>
 <p>基尼系数为0.667,表示根节点的不纯度较高。</p>
 <p>总样本量为150,即包含全部的150朵鸢尾花。</p>
@@ -307,11 +314,11 @@ if ('Gitalk' === 'Gitalk' || !true) {
   function loadOtherComment () {
     loadGitalk()
   }
-}</script></div><script async data-pjax src="/static/js/threejs-model.js"></script><script async src="/js/prism/prism.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+}</script></div><script async data-pjax src="/static/js/threejs-model.js"></script><script async src="/js/prism/prism.js"></script><div class="aplayer no-destroy" data-id="12537695373" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true" data-lrcType="-1"> </div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
 POWERMODE.shake = true;
 POWERMODE.mobile = true;
 document.body.addEventListener('input', POWERMODE);
-</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
