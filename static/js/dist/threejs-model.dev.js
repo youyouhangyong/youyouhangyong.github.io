@@ -26,7 +26,7 @@ function init() {
 
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-  camera.position.z = 3; // 创建渲染器并启用 alpha 透明度
+  camera.position.z = 2; // 创建渲染器并启用 alpha 透明度
 
   var renderer = new THREE.WebGLRenderer({
     antialias: true,
