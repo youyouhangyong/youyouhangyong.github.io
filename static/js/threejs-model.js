@@ -2,7 +2,19 @@
 let model, mixer, head, body, rightArm, leftArm, rightLeg, leftLeg;
 const clock = new THREE.Clock();
 let mouseX = 0, mouseY = 0;
-
+// 添加鼠标移动事件监听器,节流函数
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
 // 初始化函数
 function init() {
     // 获取容器
@@ -90,10 +102,11 @@ function init() {
     });
 
     // 监听鼠标移动事件
-    document.addEventListener('mousemove', onDocumentMouseMove, false);
-
+    // document.addEventListener('mousemove', onDocumentMouseMove, false);
+    document.addEventListener('mousemove', throttle(onDocumentMouseMove, 16), false);
     // 动画循环
     function animate() {
+        const lerpFactor = 0.1; // 插值因子，控制平滑度
         requestAnimationFrame(animate);
 
         if (mixer) {
@@ -102,22 +115,44 @@ function init() {
 
         // 动态调整头部和身体部分的旋转
         if (head) {
-            head.rotation.y = mouseX * Math.PI * 0.3; // 头部更大幅度左右旋转
-            head.rotation.x = mouseY * Math.PI * 0.1; // 头部轻微上下旋转
+            // 使用 lerp 实现平滑过渡
+            const targetRotationY = mouseX * Math.PI * 0.3;
+            const targetRotationX = mouseY * Math.PI * 0.1;
+
+            const maxRotation = Math.PI / 4; // 最大旋转45度
+            const clampedRotationY = Math.max(-maxRotation, Math.min(maxRotation, targetRotationY));
+            const clampedRotationX = Math.max(-maxRotation/3, Math.min(maxRotation/3, targetRotationX));
+
+            head.rotation.y += (clampedRotationY - head.rotation.y) * lerpFactor;
+            head.rotation.x += (clampedRotationX - head.rotation.x) * lerpFactor;
         }
 
         if (body) {
-            body.rotation.y = mouseX * Math.PI * 0.1; // 身体轻微左右旋转
+            const targetRotationY = mouseX * Math.PI * 0.1; // 身体轻微左右旋转
+            const maxRotation = Math.PI / 8;
+            const clampedRotationY = Math.max(-maxRotation, Math.min(maxRotation, targetRotationY));
+            body.rotation.y += (clampedRotationY - body.rotation.y) * lerpFactor
         }
 
         if (rightArm && leftArm) {
-            rightArm.rotation.y = mouseX * Math.PI * 0.05; // 右臂轻微左右旋转
-            leftArm.rotation.y = mouseX * Math.PI * 0.05; // 左臂轻微左右旋转
+            const targetRotationY = mouseX * Math.PI * 0.1; // 手臂轻微左右旋转
+            const maxRotation = Math.PI / 8;
+            const clampedRotationY = Math.max(-maxRotation, Math.min(maxRotation, targetRotationY));
+            rightArm.rotation.y += (clampedRotationY - rightArm.rotation.y) * lerpFactor;
+            leftArm.rotation.y += (clampedRotationY - leftArm.rotation.y) * lerpFactor;
+            // rightArm.rotation.y = mouseX * Math.PI * 0.05; // 右臂轻微左右旋转
+            // leftArm.rotation.y = mouseX * Math.PI * 0.05; // 左臂轻微左右旋转
         }
 
         if (rightLeg && leftLeg) {
-            rightLeg.rotation.y = mouseX * Math.PI * 0.05; // 右腿轻微左右旋转
-            leftLeg.rotation.y = mouseX * Math.PI * 0.05; // 左腿轻微左右旋转
+            const targetRotationY = mouseX * Math.PI * 0.1; // 手臂轻微左右旋转
+            const maxRotation = Math.PI / 8;
+            const clampedRotationY = Math.max(-maxRotation, Math.min(maxRotation, targetRotationY));
+
+            rightLeg.rotation.y += (clampedRotationY - rightLeg.rotation.y) * lerpFactor;
+            leftLeg.rotation.y += (clampedRotationY - leftLeg.rotation.y) * lerpFactor;
+            // rightLeg.rotation.y = mouseX * Math.PI * 0.05; // 右腿轻微左右旋转
+            // leftLeg.rotation.y = mouseX * Math.PI * 0.05; // 左腿轻微左右旋转
         }
 
         renderer.render(scene, camera);
@@ -128,8 +163,12 @@ function init() {
 
 // 鼠标移动事件处理函数
 function onDocumentMouseMove(event) {
-    mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-    mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+    const container = document.getElementById('threejs-container');
+    const rect = container.getBoundingClientRect();
+    
+    // 计算相对于容器的鼠标位置
+    mouseX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 }
 
 // 等待 DOM 完全加载

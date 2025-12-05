@@ -12,7 +12,24 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 var model, mixer, head, body, rightArm, leftArm, rightLeg, leftLeg;
 var clock = new THREE.Clock();
 var mouseX = 0,
-    mouseY = 0; // 初始化函数
+    mouseY = 0; // 添加鼠标移动事件监听器,节流函数
+
+function throttle(func, limit) {
+  var inThrottle;
+  return function () {
+    var args = arguments;
+    var context = this;
+
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(function () {
+        return inThrottle = false;
+      }, limit);
+    }
+  };
+} // 初始化函数
+
 
 function init() {
   // 获取容器
@@ -73,10 +90,13 @@ function init() {
     action.setLoop(THREE.LoopRepeat);
     action.play();
   }); // 监听鼠标移动事件
+  // document.addEventListener('mousemove', onDocumentMouseMove, false);
 
-  document.addEventListener('mousemove', onDocumentMouseMove, false); // 动画循环
+  document.addEventListener('mousemove', throttle(onDocumentMouseMove, 16), false); // 动画循环
 
   function animate() {
+    var lerpFactor = 0.1; // 插值因子，控制平滑度
+
     requestAnimationFrame(animate);
 
     if (mixer) {
@@ -85,25 +105,52 @@ function init() {
 
 
     if (head) {
-      head.rotation.y = mouseX * Math.PI * 0.3; // 头部更大幅度左右旋转
+      // 使用 lerp 实现平滑过渡
+      var targetRotationY = mouseX * Math.PI * 0.3;
+      var targetRotationX = mouseY * Math.PI * 0.1;
+      var maxRotation = Math.PI / 4; // 最大旋转45度
 
-      head.rotation.x = mouseY * Math.PI * 0.1; // 头部轻微上下旋转
+      var clampedRotationY = Math.max(-maxRotation, Math.min(maxRotation, targetRotationY));
+      var clampedRotationX = Math.max(-maxRotation / 3, Math.min(maxRotation / 3, targetRotationX));
+      head.rotation.y += (clampedRotationY - head.rotation.y) * lerpFactor;
+      head.rotation.x += (clampedRotationX - head.rotation.x) * lerpFactor;
     }
 
     if (body) {
-      body.rotation.y = mouseX * Math.PI * 0.1; // 身体轻微左右旋转
+      var _targetRotationY = mouseX * Math.PI * 0.1; // 身体轻微左右旋转
+
+
+      var _maxRotation = Math.PI / 8;
+
+      var _clampedRotationY = Math.max(-_maxRotation, Math.min(_maxRotation, _targetRotationY));
+
+      body.rotation.y += (_clampedRotationY - body.rotation.y) * lerpFactor;
     }
 
     if (rightArm && leftArm) {
-      rightArm.rotation.y = mouseX * Math.PI * 0.05; // 右臂轻微左右旋转
+      var _targetRotationY2 = mouseX * Math.PI * 0.1; // 手臂轻微左右旋转
 
-      leftArm.rotation.y = mouseX * Math.PI * 0.05; // 左臂轻微左右旋转
+
+      var _maxRotation2 = Math.PI / 8;
+
+      var _clampedRotationY2 = Math.max(-_maxRotation2, Math.min(_maxRotation2, _targetRotationY2));
+
+      rightArm.rotation.y += (_clampedRotationY2 - rightArm.rotation.y) * lerpFactor;
+      leftArm.rotation.y += (_clampedRotationY2 - leftArm.rotation.y) * lerpFactor; // rightArm.rotation.y = mouseX * Math.PI * 0.05; // 右臂轻微左右旋转
+      // leftArm.rotation.y = mouseX * Math.PI * 0.05; // 左臂轻微左右旋转
     }
 
     if (rightLeg && leftLeg) {
-      rightLeg.rotation.y = mouseX * Math.PI * 0.05; // 右腿轻微左右旋转
+      var _targetRotationY3 = mouseX * Math.PI * 0.1; // 手臂轻微左右旋转
 
-      leftLeg.rotation.y = mouseX * Math.PI * 0.05; // 左腿轻微左右旋转
+
+      var _maxRotation3 = Math.PI / 8;
+
+      var _clampedRotationY3 = Math.max(-_maxRotation3, Math.min(_maxRotation3, _targetRotationY3));
+
+      rightLeg.rotation.y += (_clampedRotationY3 - rightLeg.rotation.y) * lerpFactor;
+      leftLeg.rotation.y += (_clampedRotationY3 - leftLeg.rotation.y) * lerpFactor; // rightLeg.rotation.y = mouseX * Math.PI * 0.05; // 右腿轻微左右旋转
+      // leftLeg.rotation.y = mouseX * Math.PI * 0.05; // 左腿轻微左右旋转
     }
 
     renderer.render(scene, camera);
@@ -114,8 +161,11 @@ function init() {
 
 
 function onDocumentMouseMove(event) {
-  mouseX = event.clientX / window.innerWidth * 2 - 1;
-  mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+  var container = document.getElementById('threejs-container');
+  var rect = container.getBoundingClientRect(); // 计算相对于容器的鼠标位置
+
+  mouseX = (event.clientX - rect.left) / rect.width * 2 - 1;
+  mouseY = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 } // 等待 DOM 完全加载
 
 
